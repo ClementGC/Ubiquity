@@ -1,0 +1,92 @@
+/* // ACTIVITY */
+
+
+/* Mobile Menu */
+.main-nav__toggler {
+    display: grid;
+    gap: .5rem;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+.main-nav__bar {
+    width: 3rem;
+    height: 0.5rem;
+    background-color: #777777;
+    transition: .3s;
+}
+
+/* First element rotation when aria-expanded : true without [aria-expanded] */
+.main-nav__toggler[aria-expanded="true"] .main-nav__bar:first-child {
+    transform: rotate(45deg);
+}
+
+/* Opacity 0 on the middle element when aria-expanded : [aria-expanded] true*/
+.main-nav__toggler[aria-expanded="true"] .main-nav__bar:not(:first-child):not(:last-child) {
+    opacity: 0;
+}
+
+/* Last element rotation when aria-expanded : [aria-expanded] true*/
+.main-nav__toggler[aria-expanded="true"] .main-nav__bar:last-child {
+    transform: rotate(-45deg);
+}
+
+/* Set transform origin */
+.main-nav__bar:first-child {
+    transform-origin: left top;
+}
+
+.main-nav__bar:last-child {
+    transform-origin: left bottom;
+}
+
+/* reset origin transformation */
+
+.main-nav__toggler[aria-expanded="true"] + .main-nav-list {
+    transform: translateX(0);
+}
+
+
+/* I want to make the menu disappear from the tablet format  */
+
+/* Media queries */
+/* 
+/* /* Medium devices (landscape tablets, 768px and up) --> we apply the following rules from 768 px ( > or = ) */
+@media screen and (min-width: 768px) {
+    .nav-link {
+        position: static;
+        display: flex;
+        transform: none;
+    }
+    .main-nav__toggler {
+        display: none;
+    } 
+}
+
+@media screen and  (max-width: 768px) {
+    .main-nav-list {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        top: 8.6rem;
+        left: 0;
+        right: 0;
+        background-color: #FFFFFF;
+        transition: .3s;
+        transform: translateX(-200%);
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1.6rem 2rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: .3s;
+    }
+
+    .nav-link:hover {
+        background-color: #F16822;
+    } 
+}
