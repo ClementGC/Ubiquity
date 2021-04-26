@@ -69,15 +69,15 @@ body {
     color: #333333;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .h1-like {
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
-    margin-bottom: .75em;
     color: #F16822;
 }
 
-h1 {
+h1, .h1-like {
     font-size: 4rem;
+    margin-bottom: .75em;
 }
 
 h2 {
@@ -87,6 +87,7 @@ h2 {
 
 h3 {
     font-size: 1.5rem;
+    margin-bottom: 2rem;
     color: #333333;
 }
 
@@ -174,6 +175,7 @@ a {
 .product-description-item p{
     margin-left: 10rem;
     margin-right: 10rem;
+    margin-bottom: 14.5rem;
     font-size: 2rem;
 }
 
@@ -210,7 +212,8 @@ a {
 
 .services-item-desc p {
     font-size: 1rem;
-    padding: 0.5rem 0.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
 .services-item-logo {
@@ -226,8 +229,6 @@ a {
 }
 
 .about-description {
-    display: flex;
-    justify-content: center;
     background-image: url(/img/bokehback.png);
     background-position: center;
     background-size: cover;
@@ -243,8 +244,13 @@ a {
     padding-bottom: 10rem;
 }
 
-.post-description .description-content p{
-    margin-bottom: 8.75rem;
+.about-description-image {
+    display: flex;
+    justify-content: center;
+}
+
+.glide-post p {
+    margin-bottom: 7rem;
 }
 
 .blog-list {
@@ -270,6 +276,7 @@ a {
     padding-left: 2.8125rem;
     padding-right: 2.8125rem;
     padding-bottom: 2.8125rem;
+    font-size: 1rem;
 }
 
 .blog-item-image {
@@ -328,20 +335,27 @@ a {
 }
 
 .people-description {
+    background-image: url('/img/rect.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 5rem;
+    padding-top: 10.625rem;
+}
+
+.people-description-content {
     display: flex;
     align-items: center;
-    background-image: url('/img/rect.png');
-    padding-bottom: 13.125rem;
-    padding-top: 10.625rem;
 }
 
 .people-description-content, .people-description-content h2{
     color: #FFFFFF;
+    margin-bottom: 1.5rem;
 }
 
 .people-desc-image {
-    display: flex;
     width: 100%;
+    margin-right: 3.125rem;
 }
 
 .people-desc-image img {
@@ -496,8 +510,8 @@ a {
     .container {
         margin-left: auto;
         margin-right: auto;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
     }
 
     .main-nav {
@@ -515,8 +529,8 @@ a {
     }
 
     .services-item-desc {
-        padding-left: 6rem;
-        padding-right: 6rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
 
     .services-item {
@@ -559,19 +573,21 @@ a {
         padding-bottom: 0;
     }
 
-    .people-description{
-        flex-direction: column;
-    }
-
     .people-description-content {
-        display: flex;
         flex-direction: column;
-        align-items: center;
         margin-top: 5rem;
     }
 
-    .people-desc-image {
+    .people-description-content h2 {
+        display: flex;
         justify-content: center;
+    }
+  
+    .people-desc-image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5rem;
+        margin-right: 0;
     }
 
     .main-footer {
@@ -677,13 +693,20 @@ a {
     }
 
     .people-description-content {
-        display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 5rem;
     }
 
     .people-desc-image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5rem;
+        margin-right: 0;
+    }
+
+    .people-description-content h2 {
+        display: flex;
         justify-content: center;
     }
 
@@ -713,11 +736,15 @@ a {
   
   /* Large devices (laptops/desktops, 992px and up) */
   @media  screen and (min-width: 992px) {
-    
+   
   } 
   
   /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media screen and (min-width: 1200px) {
-    
+  @media screen and (max-width: 1200px) and (min-width: 992px) {
+    .blog-list {
+        display: grid;
+        grid-template-columns: repeat(2 , 1fr);
+        gap: 8.75rem;
+    }
   }
   
